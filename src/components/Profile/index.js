@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./index.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { dummyAddress } from "../../eyesomeData";
 import {
   addAddressItem,
@@ -101,7 +101,7 @@ const Profile = () => {
     logoutButton.textContent = "Logging Out...";
     logoutButton.style.fontWeight = "bolder";
     Cookies.remove("jwtToken");
-    const timeoutId = setTimeout(() => {
+    setTimeout(() => {
       navigate("/login");
     }, 2000);
   };
@@ -191,7 +191,6 @@ const Profile = () => {
         ))}
     </>
   );
-  
 
   const renderAddressForm = () => (
     <form onSubmit={submitAddressForm} className="address-form">

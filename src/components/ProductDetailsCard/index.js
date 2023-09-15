@@ -20,7 +20,7 @@ const ProductDetailsCard = (props) => {
 
   useEffect(() => {
     dispatch(getProductDetails(productId.id));
-  }, []);
+  }, [dispatch, productId.id]);
 
   const { data, status } = useSelector((state) => state.productDetails);
   const {

@@ -12,11 +12,11 @@ import { updatePriceSort } from "../../store/filtersSlice";
 import useApplyFilters from "../../utils/useApplyFilters";
 
 const Products = () => {
-  const { data, status } = useSelector((state) => state.products);
+  const { status } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [dispatch]);
 
   const filteredData = useApplyFilters();
 

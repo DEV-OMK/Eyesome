@@ -18,7 +18,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [dispatch]);
 
   const { data, status } = useSelector((state) => state.products);
   const trendingProductsData = data.filter(
