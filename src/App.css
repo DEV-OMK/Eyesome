@@ -1,0 +1,32 @@
+@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Monoton&display=swap);
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  min-height: 80vh;
+  padding-top: 40px;
+}
+
+@media screen and (max-width: 639px) {
+  .main-container {
+    padding-top: 60px;
+  }
+}
+
+.responsive-container {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
+
+@media screen and (min-width: 375px) {
+  .responsive-container {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .responsive-container {
+    width: 85%;
+  }
+}
