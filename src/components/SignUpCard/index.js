@@ -42,10 +42,10 @@ const SignUpCard = () => {
           password: passwordInput,
         };
 
-        dispatch(setActiveUser(newUser)); //not able to execute
+        dispatch(setActiveUser(newUser));
         dispatch(addUser(newUser));
 
-        const timeoutId = setTimeout(() => {
+        setTimeout(() => {
           navigate("/");
         }, 2000);
       } else {

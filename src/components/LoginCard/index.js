@@ -27,7 +27,7 @@ const LoginCard = () => {
         loginButton.style.backgroundColor = "#9af775";
         loginButton.style.fontWeight = "bolder";
         Cookies.set("jwtToken", "verified");
-        const timeoutId = setTimeout(() => {
+        setTimeout(() => {
           navigate("/");
         }, 2000);
       } else {
