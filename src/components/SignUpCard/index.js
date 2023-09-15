@@ -42,7 +42,7 @@ const SignUpCard = () => {
           password: passwordInput,
         };
 
-        dispatch(setActiveUser(newUser));
+        dispatch(setActiveUser(newUser)); //not able to execute
         dispatch(addUser(newUser));
 
         const timeoutId = setTimeout(() => {
