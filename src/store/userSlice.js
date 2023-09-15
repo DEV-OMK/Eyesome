@@ -32,9 +32,12 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setActiveUser(state, action) {
-      //state = { ...action.payload, primaryAddress: {}, addressList: [] };
-      state.username = "omk";
-      state.password = "omk";
+      state.id = action.payload.id;
+      state.username = action.payload.username;
+      state.email = action.payload.email;
+      state.password = action.payload.password;
+      state["primaryAddress"] = {};
+      state["addressList"] = [];
     },
 
     addAddressItem(state, action) {

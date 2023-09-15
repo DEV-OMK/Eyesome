@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import "./index.css";
+import { Link } from "react-router-dom";
 
 const BillCard = () => {
   const cartProducts = useSelector((state) => state.cart);
@@ -26,9 +27,11 @@ const BillCard = () => {
         <p>Total</p>
         <span>₹ {total}</span>
       </div>
-      <button type="button" className="bill-checkout-button">
-        Proceed to Checkout
-      </button>
+      <Link to="/checkout" className="link-item text-center">
+        <button type="button" className="bill-checkout-button">
+          Proceed to Checkout
+        </button>
+      </Link>
     </div>
   );
 };

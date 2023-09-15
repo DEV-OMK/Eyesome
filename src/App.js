@@ -13,6 +13,7 @@ import Profile from "./components/Profile";
 import ErrorCard from "./components/ErrorCard";
 import LoginPage from "./components/LoginPage";
 import SignUpPage from "./components/SignUpPage";
+import CheckoutPage from "./components/CheckoutPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 import "./App.css";
@@ -78,6 +79,15 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <Profile />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                exact
+                path="/checkout"
+                element={
+                  <ProtectedRoute>
+                    <CheckoutPage />
                   </ProtectedRoute>
                 }
               />

@@ -31,8 +31,6 @@ const Profile = () => {
   const { username, email, primaryAddress, addressList } = user;
   const navigate = useNavigate();
 
-  useEffect(() => {});
-
   const submitAddressForm = (event) => {
     event.preventDefault();
     const newAdd = {
@@ -193,6 +191,7 @@ const Profile = () => {
         ))}
     </>
   );
+  
 
   const renderAddressForm = () => (
     <form onSubmit={submitAddressForm} className="address-form">
