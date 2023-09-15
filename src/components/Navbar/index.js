@@ -23,7 +23,7 @@ const Navbar = () => {
               <BiSolidUser className="navbar-user-profile" />
             </Link>
             <Link to="/" className="link-item">
-              <h1 className="navbar-logo">buysome</h1>
+              <h1 className="navbar-logo">eyesome</h1>
             </Link>
           </section>
           <section className="searchbar-container searchbar-lg">

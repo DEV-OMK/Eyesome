@@ -4,7 +4,7 @@ import "./index.css";
 const LoginPage = () => {
   const displayForm = () => (
     <section className="display-form">
-      <h1 className="login-page-logo">buysome</h1>
+      <h1 className="login-page-logo">eyesome</h1>
       <SignUpCard />
     </section>
   );
