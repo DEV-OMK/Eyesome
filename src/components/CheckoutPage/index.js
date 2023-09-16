@@ -6,6 +6,8 @@ import { v4 as uuidv4 } from "uuid";
 import ErrorCard from "../ErrorCard";
 
 import "./index.css";
+import PaymentPage from "../PaymentPage";
+import PaymentSuccessCard from "../PaymentSuccessCard";
 
 const CheckoutPage = () => {
   const [id, setId] = useState(uuidv4());
@@ -17,6 +19,8 @@ const CheckoutPage = () => {
   const [pincode, setPincode] = useState("");
   const [addNewAddress, setAddNewAddress] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+  const [showDisplayPayment, setShowDisplayPayment] = useState(false);
+  const [showPaymentSuccess, setShowPaymentSuccess] = useState(false);
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -32,6 +36,14 @@ const CheckoutPage = () => {
     totalDiscount += product.qty * (product.price - product.newPrice);
     subtotal += product.qty * product.price;
   });
+
+  const updateDisplayPayment = (value) => {
+    setShowDisplayPayment(value);
+  };
+
+  const updatePaymentSuccess = (value) => {
+    setShowPaymentSuccess(value);
+  };
 
   const submitAddressForm = (event) => {
     event.preventDefault();
@@ -343,6 +355,7 @@ const CheckoutPage = () => {
         className="bill-checkout-button"
         onClick={() => {
           setShowConfirm(false);
+          setShowDisplayPayment(true);
         }}
       >
         Confirm Order
@@ -359,6 +372,15 @@ const CheckoutPage = () => {
       <section>{renderUserAddress()}</section>
       <section>{renderOrderSummary()}</section>
       {showConfirm && renderConfirmOrderCard()}
+      {showDisplayPayment && (
+        <PaymentPage
+          updateDisplayPayment={updateDisplayPayment}
+          updatePaymentSuccess={updatePaymentSuccess}
+        />
+      )}
+      {showPaymentSuccess && (
+        <PaymentSuccessCard updatePaymentSuccess={updatePaymentSuccess} />
+      )}
     </div>
   );
 };

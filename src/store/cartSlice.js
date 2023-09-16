@@ -13,6 +13,10 @@ const cartSlice = createSlice({
       return state.filter((item) => item.id !== action.payload);
     },
 
+    emptyCart(state, action) {
+      return initialState;
+    },
+
     increaseCartItemCount(state, action) {
       return state.map((item) => {
         if (item.id === action.payload) {
@@ -36,6 +40,7 @@ const cartSlice = createSlice({
 export const {
   addCartItem,
   removeCartItem,
+  emptyCart,
   decreaseCartItemCount,
   increaseCartItemCount,
 } = cartSlice.actions;

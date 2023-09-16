@@ -196,19 +196,20 @@ hr {
 .confirm-order-card > header > h2 {
   color: black;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin: 0;
 }
 .confirm-order-cross-button {
   color: black;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin: 0;
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
   padding: 0;
+  line-height: 1;
 }
 
 .confirm-order-card-address-title {
