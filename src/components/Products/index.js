@@ -4,14 +4,16 @@ import { getProducts } from "../../store/productsSlice";
 import ProductCard from "../ProductCard";
 import FiltersGroup from "../FiltersGroup";
 import "./index.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { statusCode } from "../../utils/statusCode";
 import Loader from "../Loader";
 import ErrorCard from "../ErrorCard";
+import ScrollToTop from "../ScrollToTop";
 import { updatePriceSort } from "../../store/filtersSlice";
 import useApplyFilters from "../../utils/useApplyFilters";
 
 const Products = () => {
+  const [showArrow, setShowArrow] = useState(false);
   const { status } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -19,6 +21,22 @@ const Products = () => {
   }, [dispatch]);
 
   const filteredData = useApplyFilters();
+
+  useEffect(() => {
+    const toggleShowArrow = () => {
+      if (window.scrollY > 300) {
+        setShowArrow(true);
+      } else {
+        setShowArrow(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleShowArrow);
+
+    return () => {
+      window.removeEventListener("scroll", toggleShowArrow);
+    };
+  }, []);
 
   const renderProductSuccessView = () => (
     <>
@@ -48,7 +66,7 @@ const Products = () => {
             onClick={() => {
               document
                 .getElementById("filtersGroup")
-                .classList.add("display-filters");
+                .classList.remove("d-none");
             }}
           >
             <BsFilterRight /> Filters
@@ -62,6 +80,7 @@ const Products = () => {
         ))}
       </ul>
       <FiltersGroup />
+      {showArrow && <ScrollToTop />}
     </>
   );
 

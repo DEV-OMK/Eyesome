@@ -219,31 +219,31 @@ const FiltersGroup = () => {
   );
 
   return (
-    <div id="filtersGroup" className="filters-card">
-      <header>
-        <h1>Filter Products</h1>
-        <RxCross2
-          className="filters-cross"
+    <div id="filtersGroup" className="eyesome-modal d-none">
+      <div className="filters-card">
+        <header>
+          <h1>Filter Products</h1>
+          <RxCross2
+            className="filters-cross"
+            onClick={() => {
+              document.getElementById("filtersGroup").classList.add("d-none");
+            }}
+          />
+        </header>
+        <button
+          type="button"
+          className="filters-button"
           onClick={() => {
-            document
-              .getElementById("filtersGroup")
-              .classList.remove("display-filters");
+            dispatch(clearFilters());
           }}
-        />
-      </header>
-      <button
-        type="button"
-        className="filters-button"
-        onClick={() => {
-          dispatch(clearFilters());
-        }}
-      >
-        Clear Filters
-      </button>
-      {renderGenderFilter()}
-      {renderPriceRangeFilter()}
-      {renderCategoriesFilter()}
-      {renderRatingFilter()}
+        >
+          Clear Filters
+        </button>
+        {renderGenderFilter()}
+        {renderPriceRangeFilter()}
+        {renderCategoriesFilter()}
+        {renderRatingFilter()}
+      </div>
     </div>
   );
 };

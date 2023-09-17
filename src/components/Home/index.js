@@ -6,15 +6,34 @@ import TrendingProductCard from "../TrendingProductCard";
 import CategoryCard from "../CategoryCard";
 
 import "./index.css";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getProducts } from "../../store/productsSlice";
 import { categoriesList } from "../../eyesomeData";
 import { statusCode } from "../../utils/statusCode";
 import Loader from "../Loader";
 import ErrorCard from "../ErrorCard";
+import ScrollToTop from "../ScrollToTop";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const ref = useRef();
+  const [showArrow, setShowArrow] = useState(false);
+
+  useEffect(() => {
+    const toggleShowArrow = () => {
+      if (window.scrollY > 300) {
+        setShowArrow(true);
+      } else {
+        setShowArrow(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleShowArrow);
+
+    return () => {
+      window.removeEventListener("scroll", toggleShowArrow);
+    };
+  }, []);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -24,6 +43,12 @@ const Home = () => {
   const trendingProductsData = data.filter(
     (product) => product.trending === true
   );
+
+  const scrollToCategories = () => {
+    ref.current.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
 
   const renderHomeBanner = () => (
     <section className="home-banner">
@@ -39,7 +64,7 @@ const Home = () => {
             Start Shopping
           </button>
         </Link>
-        <a href="#categoriesSection">
+        <a href="#categoriesSection" onClick={scrollToCategories}>
           <button
             type="button"
             className="home-banner-button home-banner-button-2"
@@ -71,7 +96,7 @@ const Home = () => {
 
   const renderCategoriesList = () => (
     <section className="home-categories-view row">
-      <div className="home-categories-title-container col-12">
+      <div className="home-categories-title-container col-12" ref={ref}>
         <h2 className="home-trending-title text-center mb-4">Categories</h2>
       </div>
       {categoriesList.map((category) => (
@@ -85,6 +110,7 @@ const Home = () => {
       {renderHomeBanner()}
       {renderHomeTrendingView()}
       {renderCategoriesList()}
+      {showArrow && <ScrollToTop />}
     </>
   );
 
