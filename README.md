@@ -5,7 +5,7 @@
 ### Introduction
 
 In this project, I build a **Eyesome App** similar to Lenskart - Clone.
-Eyesome App is your one-stop destination for all your eyewear needs, bringing the convenience of online shopping to the world of eyewear. Inspired by the success of Lenskart, Eyesome App offers a seamless and user-friendly e-commerce platform designed for purchasing eyewear online. Whether you're looking for stylish eyeglasses, fashionable sunglasses, or prescription lenses, Eyesome App has you covered.
+Eyesome App is your one-stop destination for all your eyewear needs, bringing the convenience of online shopping to the world of eyewear. Inspired by the success of Lenskart, Eyesome App offers a seamless and user-friendly e-commerce platform designed for purchasing eyewear online. Whether you're looking for stylish eyeglasses, fashionable sunglasses, Eyesome App has you covered.
 
 This README provides essential information about Eyesome App, guiding you through its features, installation, and usage. A user looking to make the most of the app, this document serves as your comprehensive guide.
 

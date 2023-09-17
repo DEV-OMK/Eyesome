@@ -18,9 +18,11 @@ const ProductDetailsCard = (props) => {
   const productId = useParams("id");
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getProductDetails(productId.id));
-  }, [dispatch, productId.id]);
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const [isAddedToWishlist, setIsAddedToWishlist] = useState(false);
+
+  const cartProducts = useSelector((state) => state.cart);
+  const wishlistProducts = useSelector((state) => state.wishlist);
 
   const { data, status } = useSelector((state) => state.productDetails);
   const {
@@ -37,8 +39,17 @@ const ProductDetailsCard = (props) => {
     weight,
   } = data;
 
-  const [isAddedToCart, setIsAddedToCart] = useState(false);
-  const [isAddedToWishlist, setIsAddedToWishlist] = useState(false);
+  useEffect(() => {
+    setIsAddedToCart(cartProducts.some((product) => product.id === id));
+  }, [cartProducts, id]);
+
+  useEffect(() => {
+    setIsAddedToWishlist(wishlistProducts.some((product) => product.id === id));
+  }, [wishlistProducts, id]);
+
+  useEffect(() => {
+    dispatch(getProductDetails(productId.id));
+  }, [dispatch, productId.id]);
 
   const addToCart = () => {
     dispatch(addCartItem({ ...data, qty: 1 }));
