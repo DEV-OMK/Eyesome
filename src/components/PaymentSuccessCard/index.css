@@ -4,39 +4,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: #efefeffa;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 80%;
-  max-height: 90vh;
-  margin: auto;
+  max-width: 100%;
   padding: 20px;
-  overflow: hidden;
-  z-index: 4;
-}
-
-@media screen and (min-width: 576px) {
-  .payment-success-container {
-    width: 60%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .payment-success-container {
-    width: 50%;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .payment-success-container {
-    width: 40%;
-  }
 }
 
 .payment-success-container > img {

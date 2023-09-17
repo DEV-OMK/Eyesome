@@ -146,119 +146,121 @@ const PaymentPage = (props) => {
   );
 
   return (
-    <div className="payment-container">
-      <header>
-        <h2>Eyesome Payments</h2>
-        <button
-          type="button"
-          className="payment-cross-button"
-          onClick={() => {
-            updateDisplayPayment(false);
-          }}
-        >
-          X
-        </button>
-      </header>
-      <section>
-        <li>
-          <label htmlFor="upi">
-            <input
-              type="radio"
-              id="upi"
-              name="paymentMethod"
-              onChange={() => {
-                setDisplayUpi(true);
-                setDisplayDebit(false);
-                setDisplayCredit(false);
-                setDisplayNetBanking(false);
-              }}
-            />
-            UPI
-          </label>
-          {displayUpi && renderUpiView()}
-        </li>
-        <li>
-          <label htmlFor="credit">
-            <input
-              type="radio"
-              id="credit"
-              name="paymentMethod"
-              onChange={() => {
-                setDisplayCredit(true);
-                setDisplayUpi(false);
-                setDisplayDebit(false);
-                setDisplayNetBanking(false);
-              }}
-            />
-            Credit Card
-          </label>
-          {displayCredit && renderCardDetailsView()}
-        </li>
-        <li>
-          <label htmlFor="debit">
-            <input
-              type="radio"
-              id="debit"
-              name="paymentMethod"
-              onChange={() => {
-                setDisplayDebit(true);
-                setDisplayCredit(false);
-                setDisplayUpi(false);
-                setDisplayNetBanking(false);
-              }}
-            />
-            Debit Card
-          </label>
-          {displayDebit && renderCardDetailsView()}
-        </li>
-        <li>
-          <label htmlFor="netBanking">
-            <input
-              type="radio"
-              id="netBanking"
-              name="paymentMethod"
-              onChange={() => {
-                setDisplayNetBanking(true);
-                setDisplayDebit(false);
-                setDisplayCredit(false);
-                setDisplayUpi(false);
-              }}
-            />
-            Net Banking
-          </label>
-          {displayNetBanking && renderNetBankingView()}
-        </li>
-        <li>
-          <label htmlFor="cod">
-            <input
-              type="radio"
-              id="cod"
-              name="paymentMethod"
-              onChange={() => {
-                setDisplayNetBanking(false);
-                setDisplayDebit(false);
-                setDisplayCredit(false);
-                setDisplayUpi(false);
-              }}
-              defaultChecked
-            />
-            Cash On Delivery
-          </label>
-        </li>
-      </section>
-      <footer>
-        <h2>₹ {total}</h2>
-        <button
-          type="button"
-          className="payment-confirm-button"
-          onClick={() => {
-            updateDisplayPayment(false);
-            updatePaymentSuccess(true);
-          }}
-        >
-          Pay Now
-        </button>
-      </footer>
+    <div className="eyesome-modal">
+      <div className="payment-container">
+        <header>
+          <h2>Eyesome Payments</h2>
+          <button
+            type="button"
+            className="payment-cross-button"
+            onClick={() => {
+              updateDisplayPayment(false);
+            }}
+          >
+            X
+          </button>
+        </header>
+        <section>
+          <li>
+            <label htmlFor="upi">
+              <input
+                type="radio"
+                id="upi"
+                name="paymentMethod"
+                onChange={() => {
+                  setDisplayUpi(true);
+                  setDisplayDebit(false);
+                  setDisplayCredit(false);
+                  setDisplayNetBanking(false);
+                }}
+              />
+              UPI
+            </label>
+            {displayUpi && renderUpiView()}
+          </li>
+          <li>
+            <label htmlFor="credit">
+              <input
+                type="radio"
+                id="credit"
+                name="paymentMethod"
+                onChange={() => {
+                  setDisplayCredit(true);
+                  setDisplayUpi(false);
+                  setDisplayDebit(false);
+                  setDisplayNetBanking(false);
+                }}
+              />
+              Credit Card
+            </label>
+            {displayCredit && renderCardDetailsView()}
+          </li>
+          <li>
+            <label htmlFor="debit">
+              <input
+                type="radio"
+                id="debit"
+                name="paymentMethod"
+                onChange={() => {
+                  setDisplayDebit(true);
+                  setDisplayCredit(false);
+                  setDisplayUpi(false);
+                  setDisplayNetBanking(false);
+                }}
+              />
+              Debit Card
+            </label>
+            {displayDebit && renderCardDetailsView()}
+          </li>
+          <li>
+            <label htmlFor="netBanking">
+              <input
+                type="radio"
+                id="netBanking"
+                name="paymentMethod"
+                onChange={() => {
+                  setDisplayNetBanking(true);
+                  setDisplayDebit(false);
+                  setDisplayCredit(false);
+                  setDisplayUpi(false);
+                }}
+              />
+              Net Banking
+            </label>
+            {displayNetBanking && renderNetBankingView()}
+          </li>
+          <li>
+            <label htmlFor="cod">
+              <input
+                type="radio"
+                id="cod"
+                name="paymentMethod"
+                onChange={() => {
+                  setDisplayNetBanking(false);
+                  setDisplayDebit(false);
+                  setDisplayCredit(false);
+                  setDisplayUpi(false);
+                }}
+                defaultChecked
+              />
+              Cash On Delivery
+            </label>
+          </li>
+        </section>
+        <footer>
+          <h2>₹ {total}</h2>
+          <button
+            type="button"
+            className="payment-confirm-button"
+            onClick={() => {
+              updateDisplayPayment(false);
+              updatePaymentSuccess(true);
+            }}
+          >
+            Pay Now
+          </button>
+        </footer>
+      </div>
     </div>
   );
 };

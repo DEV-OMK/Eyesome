@@ -30,3 +30,16 @@
     width: 85%;
   }
 }
+
+.eyesome-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000c9;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

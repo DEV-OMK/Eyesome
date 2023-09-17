@@ -299,67 +299,69 @@ const CheckoutPage = () => {
   );
 
   const renderConfirmOrderCard = () => (
-    <div className="confirm-order-card">
-      <header>
-        <h2>Order Summary</h2>
+    <div className="eyesome-modal">
+      <div className="confirm-order-card">
+        <header>
+          <h2>Order Summary</h2>
+          <button
+            type="button"
+            className="confirm-order-cross-button"
+            onClick={() => {
+              setShowConfirm(false);
+            }}
+          >
+            X
+          </button>
+        </header>
+        <hr />
+        <div className="p-2 confirm-order-card-details">
+          <h1 className="confirm-order-card-address-title">Address</h1>
+          <section className="confirm-order-card-address">
+            <h3>{primaryAddress.name}</h3>
+            <p>
+              {primaryAddress.firstLine}, {primaryAddress.secondLine}
+            </p>
+            <p>
+              {primaryAddress.city}, {primaryAddress.pincode}
+            </p>
+            <p>
+              Mobile: <span>{primaryAddress.mobile}</span>
+            </p>
+          </section>
+          <hr />
+          <div>
+            <p>Total Products</p>
+            <span>{totalProduct}</span>
+          </div>
+          <div>
+            <p>Subtotal</p>
+            <span>₹ {subtotal}</span>
+          </div>
+          <div>
+            <p>Discount</p>
+            <span>-₹ {totalDiscount}</span>
+          </div>
+          <div>
+            <p>Delivery Charges</p>
+            <span>Free</span>
+          </div>
+          <hr />
+          <div>
+            <p>Total</p>
+            <span>₹ {total}</span>
+          </div>
+        </div>
         <button
           type="button"
-          className="confirm-order-cross-button"
+          className="bill-checkout-button"
           onClick={() => {
             setShowConfirm(false);
+            setShowDisplayPayment(true);
           }}
         >
-          X
+          Confirm Order
         </button>
-      </header>
-      <hr />
-      <div className="p-2 confirm-order-card-details">
-        <h1 className="confirm-order-card-address-title">Address</h1>
-        <section className="confirm-order-card-address">
-          <h3>{primaryAddress.name}</h3>
-          <p>
-            {primaryAddress.firstLine}, {primaryAddress.secondLine}
-          </p>
-          <p>
-            {primaryAddress.city}, {primaryAddress.pincode}
-          </p>
-          <p>
-            Mobile: <span>{primaryAddress.mobile}</span>
-          </p>
-        </section>
-        <hr />
-        <div>
-          <p>Total Products</p>
-          <span>{totalProduct}</span>
-        </div>
-        <div>
-          <p>Subtotal</p>
-          <span>₹ {subtotal}</span>
-        </div>
-        <div>
-          <p>Discount</p>
-          <span>-₹ {totalDiscount}</span>
-        </div>
-        <div>
-          <p>Delivery Charges</p>
-          <span>Free</span>
-        </div>
-        <hr />
-        <div>
-          <p>Total</p>
-          <span>₹ {total}</span>
-        </div>
       </div>
-      <button
-        type="button"
-        className="bill-checkout-button"
-        onClick={() => {
-          setShowConfirm(false);
-          setShowDisplayPayment(true);
-        }}
-      >
-        Confirm Order
-      </button>
     </div>
   );
 

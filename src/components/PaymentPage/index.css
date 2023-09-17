@@ -1,41 +1,19 @@
 .payment-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: #efefeffa;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 85%;
+  min-width: 300px;
+  max-width: min(400px, 100%);
   max-height: 90vh;
   margin: auto;
   overflow: hidden;
-  z-index: 4;
-}
-
-@media screen and (min-width: 400px) {
-  .payment-container {
-    width: 75%;
-  }
 }
 
 @media screen and (min-width: 576px) {
   .payment-container {
-    width: 65%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .payment-container {
-    width: 50%;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .payment-container {
-    width: 40%;
+    min-width: 400px;
   }
 }
 
