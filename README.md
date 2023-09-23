@@ -1,6 +1,5 @@
 # Welcome to the "Eyesome App"
 
-## Totality Corp Frontend Challenge
 
 ### Introduction
 
