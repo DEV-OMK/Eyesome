@@ -9,9 +9,9 @@ const useApplyFilters = () => {
   let filteredData = [...productsList];
 
   if (priceSort === "LOW_HIGH") {
-    filteredData.sort((a, b) => a.price - b.price);
+    filteredData.sort((a, b) => a.newPrice - b.newPrice);
   } else if (priceSort === "HIGH_LOW") {
-    filteredData.sort((a, b) => b.price - a.price);
+    filteredData.sort((a, b) => b.newPrice - a.newPrice);
   } else {
     filteredData = [...productsList];
   }
